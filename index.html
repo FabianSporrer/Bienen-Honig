@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Meine Honig-Webseite</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #444;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      padding: 1rem;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      background-color: #666;
+    }
+
+    section {
+      display: none;
+      padding: 2rem;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    form {
+      max-width: 500px;
+      margin-top: 1rem;
+    }
+
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Willkommen auf meiner Honig-Webseite</h1>
+  </header>
+
+  <nav>
+    <a href="#" onclick="zeigeSeite('start')">Startseite</a>
+    <a href="#" onclick="zeigeSeite('geschichte')">Geschichte</a>
+    <a href="#" onclick="zeigeSeite('produkte')">Produkte</a>
+    <a href="#" onclick="zeigeSeite('kontakt')">Kontakt</a>
+  </nav>
+
+  <main>
+    <section id="start" class="active">
+      <h2>Startseite</h2>
+      <p>Willkommen bei unserer Honig-Manufaktur!</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Honey_comb.jpg" alt="Honigwabe">
+    </section>
+
+    <section id="geschichte">
+      <h2>Unsere Geschichte</h2>
+      <p>Unsere kleine Imkerei begann mit nur zwei Bienenstöcken. Heute beliefern wir Kunden in ganz Deutschland mit regionalem Honig.</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Honey_bee_on_flower.jpg" alt="Biene auf Blume">
+    </section>
+
+    <section id="produkte">
+      <h2>Unsere Produkte</h2>
+      <ul>
+        <li>Blütenhonig – mild und aromatisch</li>
+        <li>Waldhonig – kräftig im Geschmack</li>
+        <li>Lavendelhonig – leicht blumige Note</li>
+      </ul>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Honey_in_jars.jpg" alt="Honiggläser">
+    </section>
+
+    <section id="kontakt">
+      <h2>Kontakt</h2>
+      <p>Hast du Fragen zu unseren Produkten oder möchtest du Honig bestellen? Schreib uns gerne!</p>
+      <form onsubmit="alert('Vielen Dank für deine Nachricht!'); return false;">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">E-Mail:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="nachricht">Nachricht:</label>
+        <textarea id="nachricht" name="nachricht" rows="5" required></textarea>
+
+        <button type="submit">Absenden</button>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    function zeigeSeite(seitenId) {
+      const sektionen = document.querySelectorAll("main section");
+      sektionen.forEach((sektion) => {
+        sektion.classList.remove("active");
+      });
+
+      document.getElementById(seitenId).classList.add("active");
+    }
+  </script>
+
+</body>
+</html>
